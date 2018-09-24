@@ -3680,8 +3680,15 @@
     var kickoffs = {
         "oths": L.latLng(43.476, -79.659),
         "studica": L.latLng(43.6576772, -79.6825408),
-        "crecent": L.latLng(43.767, -79.416),
+        "crescent": L.latLng(43.767, -79.416),
         "waterloo": L.latLng(43.4928604, -80.4187849)
+    };
+
+    var kickoffCount = {
+        "oths": 0,
+        "studica": 0,
+        "crescent": 0,
+        "waterloo": 0
     };
     var OTHS = L.circle([43.476, -79.659], {
         color: 'red',
@@ -3689,14 +3696,14 @@
         fillOpacity: 0.5,
         radius: 20000
     }).addTo(map);
-    OTHS.bindPopup("OTHS Kickoff");
+
     var studica = L.circle([43.6576772, -79.6825408], {
         color: 'blue',
         fillColor: '#9999ff',
         fillOpacity: 0.5,
         radius: 20000
     }).addTo(map);
-    studica.bindPopup("Studica Kickoff");
+
 
     var crescent = L.circle([43.767, -79.416], {
         color: 'green',
@@ -3704,7 +3711,7 @@
         fillOpacity: 0.5,
         radius: 20000
     }).addTo(map);
-    crescent.bindPopup("Crecent Kickoff");
+
 
     var waterloo = L.circle([43.4928604, -80.4187849], {
         color: 'yellow',
@@ -3712,7 +3719,7 @@
         fillOpacity: 0.5,
         radius: 20000
     }).addTo(map);
-    waterloo.bindPopup("Waterloo Kickoff");
+
 
     var markers = L.markerClusterGroup();
 
@@ -3736,8 +3743,9 @@
                     }
                 }
             }
+            kickoffCount[closestKickoff]++;
             teamMarker.bindPopup("Team: " + teamNumber + "<br>" + "Closest Kickoff: "
-                + closestKickoff + ", " + parseInt(closest/1000, 10) + " kilometres");
+                + closestKickoff + ", " + parseInt(closest / 1000, 10) + " kilometres");
             markers.addLayer(teamMarker);
 
             //console.log(teamNumber + "_" + lat + "_" + long);
@@ -3746,7 +3754,10 @@
     map.addLayer(markers);
 
     teams.forEach(printTeams);
-
+    crescent.bindPopup("Crescent Kickoff: "+ kickoffCount["crescent"]);
+    studica.bindPopup("Studica Kickoff: " + kickoffCount["studica"] );
+    waterloo.bindPopup("Waterloo Kickoff: " + kickoffCount["waterloo"]);
+    OTHS.bindPopup("OTHS Kickoff: " + kickoffCount["oths"]);
 
 </script>
 
