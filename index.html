@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TeamMap for Kickoff</title>
+    <title>TeamMap for Samuel Steel</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -3719,15 +3719,15 @@
         "Twinsburg Samuel Steel Pickling Company 1400 Enterprise Parkway Twinsburg, Ohio 44087": L.latLng(41.2928193, -81.471543),
         "Fort Mill Samuel Packaging Systems Group 2000 K Boyer Drive Fort Mill, South Carolina 29708": L.latLng(35.0923675, -80.9568871),
         "Fort Payne Samuel Packaging Systems Group 4020 Gault Avenue South Fort Payne, Alabama 35967": L.latLng(34.3975738, -85.7657292),
-        "Tomahawk Samuel Pressure Vessel Group and LZR FIT 1119A Bridge Street Tomahawk, Wisconsin 54487": L.latLng(45.4838385, -89.7468025)
-        "Heath Samuel Packaging Systems Group 1455 James Parkway Heath, Ohio 43056": L.latLng(40.0142327, -82.4772137)
-        "Iuka Samuel Roll Form Group 26 County Road 35), Iuka, Mississippi            38852": L.latLng(34.9726248, -88.2400593)
-        "Jacksonville Samuel Roll  Form Group 945 Center Street  Green Cove Springs, Florida  32043": L.latLng(29.9930323, -81.6881957)
+        "Tomahawk Samuel Pressure Vessel Group and LZR FIT 1119A Bridge Street Tomahawk, Wisconsin 54487": L.latLng(45.4838385, -89.7468025),
+        "Heath Samuel Packaging Systems Group 1455 James Parkway Heath, Ohio 43056": L.latLng(40.0142327, -82.4772137),
+        "Iuka Samuel Roll Form Group 26 County Road 35), Iuka, Mississippi            38852": L.latLng(34.9726248, -88.2400593),
+        "Jacksonville Samuel Roll  Form Group 945 Center Street  Green Cove Springs, Florida  32043": L.latLng(29.9930323, -81.6881957),
         "St. Louis Missouri Metals 9970 Page Avenue St.Louis, Missouri  63132": L.latLng(38.6875071, -90.382688),
         "Tucson CAID Industries 2275 E Ganley Rd Tucson, Arizona 85706": L.latLng(32.1401375, -110.939930),
         "Angola Metal Spinners, Inc. 800 Growth Parkway Angola, Indiana 46703": L.latLng(41.6661241, -85.009145),
         "1249 Appleby Line,Burlington, Ontario": L.latLng(43.3851397, -79.7833174),
-        "6125 - 51st Street SE Calgary, Alberta": L.latLng(50.9992068, -113.9626889)
+        "6125 - 51st Street SE Calgary, Alberta": L.latLng(50.9992068, -113.9626889),
         "1222 Derwent Way, Delta, British Colombia": L.latLng(49.1653809, -122.9483709),
         "1632 Burlington Street East Hamilton, Ontario": L.latLng(43.2563115, -79.7963789),
         "2325 McKee Avenue Saskatoon, Saskatchewan": L.latLng(52.1631802, -106.6544928),
@@ -3757,7 +3757,7 @@
         var lat = loc.lat;
         var long = loc.lng;
 
-        L.circle([lat, long], {radius: 20000, fillOpacity: 0.25}).addTo(map);
+        L.circle([lat, long], {radius: 25000, fillOpacity: 0.25}).addTo(map).bindPopup(site);
     }
 
 
@@ -3765,13 +3765,13 @@
 
     function printTeams(team) {
 
-        teamNumber = team["team_number"];
+        var teamNumber = team["team_number"];
         lat = team["lat"];
         long = team["lng"];
 
 
-        teamMarker = L.marker([lat, long]);
-        point = L.latLng(lat, long);
+        var teamMarker = L.marker([lat, long]);
+        var point = L.latLng(lat, long);
         var closest = 1000000000;
         var closestKickoff = "";
         for (var key in sites) {
