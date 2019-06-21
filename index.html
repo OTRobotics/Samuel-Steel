@@ -3757,7 +3757,7 @@
         var lat = loc.lat;
         var long = loc.lng;
 
-        L.circle([lat, long], {radius: 25000, fillOpacity: 0.25}).addTo(map).bindPopup(site);
+        //L.circle([lat, long], {radius: 25000, fillOpacity: 0.25}).addTo(map).bindPopup(site);
     }
 
 
@@ -3783,8 +3783,8 @@
                 }
             }
         }
-        teamMarker.bindPopup("Team: " + teamNumber + "<br>" + "Closest Site: "
-            + closestKickoff + ", " + parseInt(closest / 1000, 10) + " kilometres");
+        teamMarker.bindPopup("Team: " + teamNumber) //+ "<br>" + "Closest Site: "
+            //+ closestKickoff + ", " + parseInt(closest / 1000, 10) + " kilometres");
         markers.addLayer(teamMarker);
 
         //console.log(teamNumber + "_" + lat + "_" + long);
